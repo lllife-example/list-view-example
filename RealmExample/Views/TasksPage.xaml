@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="RealmExample.TasksPage">
+
+	<StackLayout Orientation="Vertical">
+		<StackLayout 
+				Orientation="Vertical" 
+				Padding="10,5,5,10"> 
+				<Entry Placeholder="Enter task name" x:Name="titleTextBox"/>
+				<StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+					<Button Text="(Add Task)" x:Name="addTaskButton" />
+					<Button Text="Clear" x:Name="clearTaskButton" />
+				</StackLayout>
+		</StackLayout>	
+		<ListView 
+				ItemsSource="{Binding Tasks}" 
+				Header="{Binding Intro}" 
+				x:Name="taskListView">
+
+			<ListView.HeaderTemplate>
+				<DataTemplate>
+					<Label></Label>
+				</DataTemplate>
+			</ListView.HeaderTemplate>
+
+			<ListView.ItemTemplate>
+				<DataTemplate>
+					<TextCell Text="{Binding Display}" Detail="{Binding Description}"></TextCell>
+				</DataTemplate>
+			</ListView.ItemTemplate>
+
+		</ListView>
+	</StackLayout>
+</ContentPage>
